@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Monte-Carlo Tree Search for Efficient Visually Guided Rearrangement Planning">
+    <meta name="author" content="WILLOW team">
+
+    <title>Monte-Carlo Tree Search for Efficient Visually Guided Rearrangement Planning</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+
+      <div class="container">
+          <div class="header">
+          </div>
+          <div class="header">
+              <center>
+                  <h1> <b> Monte-Carlo Tree Search for Efficient Visually Guided Rearrangement Planning </b> </h1>
+                  <ul class="list-inline authors">
+                      <li>Yann Labbé</li>
+                      <li><a href="http://imagine.enpc.fr/~zagoruys/">Sergey Zagoruyko</a></li>
+                      <li>Igor Kalevatykh</li>
+                      <li><a href="https://www.di.ens.fr/~laptev/">Ivan Laptev</a></li>
+                      <li><a href="https://jcarpent.github.io/">Justin Carpentier</a></li>
+                      <li><a href="http://imagine.enpc.fr/~aubrym/">Mathieu Aubry</a></li>
+                      <li><a href="http://www.di.ens.fr/~josef/">Josef Sivic</a></li>
+                  </ul>
+              </center>
+              <!-- <br> -->
+              <center>
+                  <h4>    IEEE Robotics and Automation Letters, 2020 </h4>
+              </center>
+              <center>
+              <h4>
+                      <a href="https://arxiv.org/abs/1904.10348">[Paper]</a>
+                      <a href="https://youtu.be/vZ1B3JaL9Os">[Video]</a>
+                      <a href="https://github.com/ylabbe/rearrangement-planning">[Visual state estimation code]</a>
+                      <a href="https://github.com/ylabbe/permutandis">[MCTS Task planner code]</a>
+              </h4>
+              </center>
+          </div>
+      </div>
+
+    <div class="container">
+        <center>
+            <img class="img-responsive"  src="images/teaser.svg" title="Visually guided rearrangement planning."/>
+        </center>
+        <h4>
+            <b> Visually guided rearrangement planning. </b>
+            Given a source
+            (a) and target (b) RGB images depicting a robot and multiple
+            movable objects, our approach estimates the positions of objects
+            in the scene without the need for explicit camera calibration and
+            efficiently finds a sequence of robot actions (c) to re-arrange the
+            scene into the target scene. Final object configuration after re-
+            arrangement by the robot is shown in (d).
+        </h4>
+        <div class="header">
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+            <h3>Abstract</h3>
+            <p style="font-size:16px">
+                We address the problem of visually guided rearrangement planning with many movable objects,
+                i.e., finding a sequence of actions to move a set of objects from an initial
+                arrangement to a desired one, while relying on visual inputs
+                coming from an RGB camera. To do so, we introduce a
+                complete pipeline relying on two key contributions. First, we
+                introduce an efficient and scalable rearrangement planning
+                method, based on a Monte-Carlo Tree Search exploration
+                strategy. We demonstrate that because of its good trade-off
+                between exploration and exploitation our method (i) scales well
+                with the number of objects while (ii) finding solutions which
+                require a smaller number of moves compared to the other
+                state-of-the-art approaches. Note that on the contrary to many
+                approaches, we do not require any buffer space to be available.
+                Second, to precisely localize movable objects in the scene,
+                we develop an integrated approach for robust multi-object
+                workspace state estimation from a single uncalibrated RGB
+                camera using a deep neural network trained only with synthetic
+                data. We validate our multi-object visually guided manipulation
+                pipeline with several experiments on a real UR-5 robotic arm
+                by solving various rearrangement planning instances, requiring
+                only 60 ms to compute the plan to rearrange 25 objects. In
+                addition, we show that our system is insensitive to camera movements
+                and can successfully recover from external perturbations.
+            </p>
+        </div>
+
+        <div class="row">
+            <h3>Video</h3>
+            <center>
+                <iframe width="640" height="360" src="https://www.youtube.com/embed/vZ1B3JaL9Os" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </center>
+        </div>
+
+        <div class="row">
+            <h3>Paper</h3>
+	          <p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="https://arxiv.org/abs/1904.10348"><img style="box-shadow: 5px 5px 2px #888888; margin: 10px" src="images/paper-screenshot.png" width="150px"></a>
+                            </td>
+                            <td>
+                                Y. Labbé, S. Zagoruyko, I. Kalevatykh, I. Laptev, J. Carpentier, M. Aubry and J. Sivic<br>
+                                <b> Monte-Carlo Tree Search for Efficient Visually Guided Rearrangement Planning </b> <br>
+                                <i> IEEE Robotics and Automation Letters, 2020 </i> <br>
+                                [<a href="https://arxiv.org/abs/1904.10348">Paper on arXiv</a>]
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>BibTeX</h4>
+                <pre>
+@ARTICLE{labbe2020,
+author={Y. {Labbe} and S. {Zagoruyko} and I. {Kalevatykh} and I. {Laptev} and J. {Carpentier} and M. {Aubry} and J. {Sivic}},
+journal={IEEE Robotics and Automation Letters},
+title={Monte-Carlo Tree Search for Efficient Visually Guided Rearrangement Planning},
+year={2020}}</pre>
+        </div>
+
+        <div class="row">
+            <h3>Code</h3>
+            <ul style="list-style-type:circle;">
+                <li> <a href="https://github.com/ylabbe/rearrangement-planning"> <b>Visual state estimation</b> </a>: We provide the training and evaluation data as well as the state prediction model used in the experiments mentionned in the paper. If you have the same setup (UR5 robot and Robotiq 3-Finger Adaptive Robot gripper), you can use the model for extracting object positions from an uncalibrated RGB camera. This information can be used to perform other tasks with the robot.</li>
+                <li><a href="https://github.com/ylabbe/permutandis"> <b>MCTS Task planner</b> </a>: C++ code for our MCTS task planner as well as evaluation code for comparing your planner with ours.</li>
+            </ul>
+
+
+      <div class="row">
+        <h3>Acknowledgements</h3>
+        <p style="font-size:16px">
+
+            We thank Loïc Esteve and Ignacio Rocco for helpful
+            discussions. This work was partially supported by the DGA
+            RAPID projects DRAAF and TABASCO, the MSR-Inria
+            joint lab, the Louis Vuitton - ENS Chair on Artificial
+            Intelligence, the HPC resources from GENCI-IDRIS (Grant 011011181),
+            the ERC grant LEAP (No. 336845), the CIFAR
+            Learning in Machines\&Brains program, the European
+            Regional Development Fund under the project IMPACT (reg.
+            no. CZ.02.1.01/0.0/0.0/15 003/0000468) and the French government
+            under management of Agence Nationale de la Recherche as part of the
+            "Investissements d'avenir" program, reference ANR-19-P3IA-0001 (PRAIRIE 3IA Institute).
+        </p>
+      </div>
+
+      <div class="row">
+        <h3>Copyright Notice</h3>
+        <p style="font-size:16px">
+            The documents contained in these directories are included by the contributing authors
+            as a means to ensure timely dissemination of scholarly and technical work on a non-commercial basis.
+            Copyright and all rights therein are maintained by the authors or by other copyright holders, notwithstanding that they have offered
+            their works here electronically. It is understood that all persons copying this information will adhere to the terms and constraints
+            invoked by each author's copyright
+            .</p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>
